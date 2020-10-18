@@ -1,0 +1,32 @@
+/*Sudoku Board*/
+.import {
+    padding-bottom:0.2em;
+}
+.import input[type=text] {
+    width:630px;
+}
+.sudoku {
+    border:4px solid black;
+    border-collapse: collapse;
+}
+
+tr {
+    padding:0;
+}
+td {
+    padding:0; 
+    border:1px solid black; 
+    width:1em;
+}
+input {
+    width:1em; 
+    border:0;  
+    text-align:center;
+    font-size: 5em;
+}
+.sudoku .thick_right {
+    border-right:4px solid black !important;
+}
+.sudoku .thick_bottom {
+    border-bottom:4px solid black;
+}
