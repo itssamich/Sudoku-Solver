@@ -9,8 +9,13 @@ var board = [
     [0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0]
 ];
-console.log(board);
-sudokuSolver(board);
+function solve(){
+    var start = performance.now();
+    sudokuSolver(board);
+    console.log(board);
+    var end = performance.now();
+    console.log("Time taken: " + (end - start) + " ms");
+}
 
 function isValid(board, row, col, value){
     for(let i = 0; i < 9; i++){
