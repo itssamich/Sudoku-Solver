@@ -6,10 +6,6 @@ input::-webkit-inner-spin-button, input::-webkit-outer-spin-button{
 input[type=number] {
     -moz-appearance: textfield;
 }
-input{
-    height: 1em;
-    width: 1em;
-}
 .sudoku {
     border:thick solid black;
     border-collapse: collapse;
@@ -30,8 +26,21 @@ td {
     height: 1em;
 }
 input {
-    width:1em; 
+    width:1em;
+    height: 1em; 
     border:0;  
     text-align:center;
     font-size: 5em;
+}
+
+/*Import Input*/
+#import{
+    text-align: left;
+    font-size: 1em;
+    width: 500px;
+    margin: 15px;
+    border: 1px solid black;
+}
+#import:valid{
+    background-color: white;
 }
