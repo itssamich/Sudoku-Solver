@@ -1,10 +1,11 @@
 var board;
 var cells = document.getElementsByClassName('cell'); //defines an array to hold the cell values
-var counter = 0; //counter to check if minimum hint count is met(17)
+var counter; //counter to check if minimum hint count is met(17)
 
 
 function getBoard(){
     Board(); //Creates a new board
+    counter = 0;
     for(let i = 0; i< 9; i++){
         for(let j = 0; j< 9; j++){
             index = i * 9 + j; //Sets the postition the board is at in the array
@@ -52,13 +53,14 @@ function solve(){
     var start = 0; //start of runtime timer
     var end = 0; //end of runtime timer
 
+    getBoard(); //Sets up the board with user defined values
+
     if(counter < 17){ //checks the counter value to see if it is at the minimum
         alert("Not a valid input. No Unique Solution"); //alerts the user
         resetBoard(); //resets the board so no value remains
         return; //ends the program
     }
 
-    getBoard(); //Sets up the board with user defined values
     start = performance.now(); //the start timer for runtime
     sudokuSolver(board); //runs solver function
     var end = performance.now(); //the end timer for runtime
@@ -111,6 +113,7 @@ function importPuzzle(){
         alert("Please enter a valid puzzle"); //alerts user
     }
     else{
+        counter = 0;
         Board(); //generates a new board;
         counter = 81; //sets the counter to 81 to allow for solving
         for(let i = 0; i < 9; i++){ //row
