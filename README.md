@@ -1,2 +1,2 @@
 # SudokuSolver
-Using Backtracking, compare times to solve a sudoku puzzle with a bruteforce method.
+Using Backtracking, solve sudoku puzzles given by the user.
