@@ -1,17 +1,33 @@
 /*Sudoku Board*/
-
+input::-webkit-inner-spin-button, input::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+input{
+    height: 1em;
+    width: 1em;
+}
 .sudoku {
-    border:4px solid black;
+    border:thick solid black;
     border-collapse: collapse;
 }
-
 tr {
     padding:0;
+}
+td:nth-of-type(3n){
+    border-right: thick solid black;
+}
+tr:nth-of-type(3n){
+    border-bottom: thick solid black;
 }
 td {
     padding:0; 
     border:1px solid black; 
     width:1em;
+    height: 1em;
 }
 input {
     width:1em; 
