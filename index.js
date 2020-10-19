@@ -1,6 +1,6 @@
 var board = [];
 var cells = document.getElementsByClassName('cell'); //defines an array to hold the cell values
-
+var counter = 0;
 
 function getBoard(){
     Board(); //Creates a new board
@@ -9,9 +9,17 @@ function getBoard(){
             index = i * 9 + j; //Sets the postition the board is at in the array
             cell = cells[index]; //finds the cell at the position board is at in array of cells
             board[i][j] = cell.value; //takes the cell value and puts it in a 2D array for board position
+            validValue(cell.value); //makes sure that the value is valid
+            console.log(counter);
         }
     }
 
+
+}
+function validValue(value){
+    if(value != ''){
+        counter++;
+    }
 }
 function Board(){
     board = [
@@ -44,6 +52,11 @@ function resetBoard(){
 function solve(){
     var start = 0;
     var end = 0;
+    if(counter < 17){
+        alert("Not a valid input. No Unique Solution");
+        resetBoard();
+        return;
+    }
     getBoard(); //Sets up the board with user defined values
     start = performance.now(); //the start timer for runtime
     sudokuSolver(board); //runs solver function
@@ -62,7 +75,7 @@ function isValid(board, row, col, value){
     for(let i = 0; i < 9; i++){
         var m = 3 * Math.floor(row / 3) + Math.floor(i/3);
         var n = 3 * Math.floor(col/3) + i % 3;
-        if(board[row][i] == value || board[i][col] == value || board[m][n] == value){
+        if(board[row][i] === value || board[i][col] === value || board[m][n] === value){
             return false;
         }
     }
