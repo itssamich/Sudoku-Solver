@@ -2,6 +2,37 @@ var board = [];
 var cells = document.getElementsByClassName('cell'); //defines an array to hold the cell values
 var counter = 0;
 
+//Function that starts the program
+function solve(){
+    var start = 0;
+    var end = 0;
+
+
+    if(counter < 17){
+        alert("Not a valid input. No Unique Solution");
+        resetBoard();
+        return;
+    }
+
+    getBoard(); //Sets up the board with user defined values
+    
+    
+    start = performance.now(); //the start timer for runtime
+    sudokuSolver(board); //runs solver function
+    var end = performance.now(); //the end timer for runtime
+    if(sudokuSolver(board)){
+        document.getElementById('timer').innerHTML = "Time taken to solve with Backtracking: " + (end - start) + " ms"; //updates the timer div in index.html to display backtracking time
+        updateBoard(); //updates board with all correct values found from the solver
+    }
+    else{
+        alert("There is no solution!"); //if no valid solution, alerts the user of it.
+    }
+
+}
+
+
+
+//Handles board and input management
 function getBoard(){
     Board(); //Creates a new board
     for(let i = 0; i< 9; i++){
@@ -34,7 +65,6 @@ function Board(){
         [0,0,0,0,0,0,0,0,0]
     ];
 }
-
 function updateBoard(){
     for(let i = 0; i < 9; i++){
         for(let j = 0; j < 9; j++){
@@ -49,28 +79,8 @@ function resetBoard(){
 }
 
 
-function solve(){
-    var start = 0;
-    var end = 0;
-    if(counter < 17){
-        alert("Not a valid input. No Unique Solution");
-        resetBoard();
-        return;
-    }
-    getBoard(); //Sets up the board with user defined values
-    start = performance.now(); //the start timer for runtime
-    sudokuSolver(board); //runs solver function
-    var end = performance.now(); //the end timer for runtime
-    if(sudokuSolver(board)){
-        document.getElementById('timer').innerHTML = "Time taken to solve with Backtracking: " + (end - start) + " ms"; //updates the timer div in index.html to display backtracking time
-        updateBoard(); //updates board with all correct values found from the solver
-    }
-    else{
-        alert("There is no solution!"); //if no valid solution, alerts the user of it.
-    }
 
-}
-
+//Backtracking Algorithm
 function isValid(board, row, col, value){
     for(let i = 0; i < 9; i++){
         var m = 3 * Math.floor(row / 3) + Math.floor(i/3);
@@ -81,7 +91,6 @@ function isValid(board, row, col, value){
     }
     return true;
 }
-
 function sudokuSolver(board){
     for(let i = 0; i < 9; i++){ //Iterates for rows
         for(let j = 0; j < 9; j++){ //Iterates for columns
