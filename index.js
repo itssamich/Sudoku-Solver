@@ -1,22 +1,47 @@
-var board = [
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0]
-];
+var board = [];
+var cells = document.getElementsByClassName('cell');
 
+function getBoard(){
+    Board();
+    for(let i = 0; i< 9; i++){
+        for(let j = 0; j< 9; j++){
+            index = i * 9 + j;
+            cell = cells[index];
+            board[i][j] = cell.value;
+        }
+    }
+
+}
+
+function Board(){
+    board = [
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0]
+    ];
+}
 
 function solve(){
+    getBoard();
     var start = performance.now();
     sudokuSolver(board);
     var end = performance.now();
-    console.log(board);
-    console.log("Time taken: " + (end - start) + " ms");
+    if(sudokuSolver(board)){
+        for(let i = 0; i < 9; i++){
+            for(let j = 0; j < 9; j++){
+                index = i*9+j;
+                cell = cells[index];
+                cell.value = board[i][j];
+            }
+        }
+    }
+    console.log("Time taken to solve with Backtracking: " + (end - start) + " ms");
 }
 
 function isValid(board, row, col, value){
