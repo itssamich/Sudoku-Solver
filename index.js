@@ -27,12 +27,21 @@ function Board(){
     ];
 }
 
+function resetBoard(){
+    for(let i = 0; i< 9; i++){
+        for(let j = 0; j< 9; j++){
+            board[i][j] = 0;
+        }
+    }
+}
+
 function solve(){
     getBoard();
     var start = performance.now();
     sudokuSolver(board);
     var end = performance.now();
     if(sudokuSolver(board)){
+        document.getElementById('timer').innerHTML = "Time taken to solve with Backtracking: " + (end - start) + " ms";
         for(let i = 0; i < 9; i++){
             for(let j = 0; j < 9; j++){
                 index = i*9+j;
@@ -41,7 +50,7 @@ function solve(){
             }
         }
     }
-    console.log("Time taken to solve with Backtracking: " + (end - start) + " ms");
+
 }
 
 function isValid(board, row, col, value){
