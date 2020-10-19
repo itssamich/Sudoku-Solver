@@ -1,18 +1,18 @@
 var board = [];
-var cells = document.getElementsByClassName('cell');
+var cells = document.getElementsByClassName('cell'); //defines an array to hold the cell values
+
 
 function getBoard(){
-    Board();
+    Board(); //Creates a new board
     for(let i = 0; i< 9; i++){
         for(let j = 0; j< 9; j++){
-            index = i * 9 + j;
-            cell = cells[index];
-            board[i][j] = cell.value;
+            index = i * 9 + j; //Sets the postition the board is at in the array
+            cell = cells[index]; //finds the cell at the position board is at in array of cells
+            board[i][j] = cell.value; //takes the cell value and puts it in a 2D array for board position
         }
     }
 
 }
-
 function Board(){
     board = [
         [0,0,0,0,0,0,0,0,0],
@@ -27,28 +27,33 @@ function Board(){
     ];
 }
 
-function resetBoard(){
-    for(let i = 0; i< 9; i++){
-        for(let j = 0; j< 9; j++){
-            board[i][j] = 0;
+function updateBoard(){
+    for(let i = 0; i < 9; i++){
+        for(let j = 0; j < 9; j++){
+            index = i*9+j; //Sets the postition the board is at in the array
+            cell = cells[index]; //finds the cell at the position board is at in array of cells
+            cell.value = board[i][j]; //takes the value at the board position and returns it to the cell
         }
     }
 }
+function resetBoard(){
+    location.reload(); //Bad way to handle it, reflreshed the page to reload.
+}
+
 
 function solve(){
-    getBoard();
-    var start = performance.now();
-    sudokuSolver(board);
-    var end = performance.now();
+    var start = 0;
+    var end = 0;
+    getBoard(); //Sets up the board with user defined values
+    start = performance.now(); //the start timer for runtime
+    sudokuSolver(board); //runs solver function
+    var end = performance.now(); //the end timer for runtime
     if(sudokuSolver(board)){
-        document.getElementById('timer').innerHTML = "Time taken to solve with Backtracking: " + (end - start) + " ms";
-        for(let i = 0; i < 9; i++){
-            for(let j = 0; j < 9; j++){
-                index = i*9+j;
-                cell = cells[index];
-                cell.value = board[i][j];
-            }
-        }
+        document.getElementById('timer').innerHTML = "Time taken to solve with Backtracking: " + (end - start) + " ms"; //updates the timer div in index.html to display backtracking time
+        updateBoard(); //updates board with all correct values found from the solver
+    }
+    else{
+        alert("There is no solution!"); //if no valid solution, alerts the user of it.
     }
 
 }
