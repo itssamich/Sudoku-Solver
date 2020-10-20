@@ -1,0 +1,119 @@
+/*Global Styles*/
+body{
+    display: flex;
+    background-color: lightslategrey;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+h1{
+    margin-top: 0px;
+}
+/*UI Styles*/
+#testStringAside{
+    background-color: white;
+    border-radius: 15px;
+    padding: 50px;
+    font-weight: 500;
+    width: 407px; /*Lol hardcoded for fun*/
+    position: fixed;
+    left: 1.5%;
+    top: 10%;
+    text-align: center;
+}
+#stringAside{
+    background-color: white;
+    border-radius: 15px;
+    padding: 50px;
+    font-weight: 500;
+    position: absolute;
+    left: 1.5%;
+    bottom: 20%;
+
+}
+.buttons{
+    display: inline;
+    flex-wrap: wrap;
+    width: 40%;
+    height: 50px;
+    vertical-align: middle;
+}
+#importbtn, #resetbtn, #solvebtn{
+    margin: 0;
+    width: 32.7%;
+    height: 100%;
+}
+.githubLink{
+    position: absolute;
+    top: 0px;
+    right: 50px;
+}
+#timer p{
+    margin: 0;
+}
+#timer{
+    font-size: 1.2em;
+}
+.input{
+    border: thin solid black;
+    margin-top: 5px;
+}
+.input label{
+    text-align: right;
+}
+#import:valid{
+    background-color: rgba(0, 255, 0, 0.5);
+}
+#import:invalid{
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+/*Sudoku Board*/
+input::-webkit-inner-spin-button, input::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+.sudoku {
+
+    border:thick solid black;
+    border-collapse: collapse;
+}
+tr {
+    padding:0;
+}
+td:nth-of-type(3n){
+    border-right: thick solid black;
+}
+tr:nth-of-type(3n){
+    border-bottom: thick solid black;
+}
+td {
+    padding:0; 
+    border:1px solid black; 
+    width:1em;
+    height: 1em;
+}
+input {
+    width:1em;
+    height: 1em; 
+    border:0;  
+    text-align:center;
+    font-size: 5em;
+}
+
+/*Import Input*/
+#import{
+    text-align: left;
+    font-size: 1em;
+    width: 500px;
+    margin: 15px;
+    border: 1px solid black;
+}
+#import:valid{
+    background-color: white;
+}
+
