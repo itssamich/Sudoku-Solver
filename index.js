@@ -2,7 +2,36 @@ var board;
 var cells = document.getElementsByClassName('cell'); //defines an array to hold the cell values
 var counter; //counter to check if minimum hint count is met(17)
 
+function testString(){  
 
+    var place = Math.floor(Math.random() * Math.floor(6)) + 1;
+    console.log("Test String Value: " + place);
+    switch(place){
+        case 1:
+            document.getElementById("import").value = "080100007000070960026900130000290304960000082502047000013009840097020000600003070";
+            break;
+        case 2:
+            document.getElementById("import").value = "010020300004005060070000008006900070000100002030048000500006040000800106008000000";
+            break;
+        case 3:
+            document.getElementById("import").value = "010020300002003040050000006004700050000100003070068000300004090000600104006000000";
+            break;
+        case 4:
+            document.getElementById("import").value = "010020300002003040080000006004700030000600008070098000300004090000800104006000000";
+            break;
+        case 5:
+            document.getElementById("import").value = "000012300000400000105006700306000070700080009020000108001500403000001000003890000";
+            break;
+        case 6:
+            document.getElementById("import").value = "000012300000300000104005600305000060600070002080000105001400903000001000003720000";
+            break;
+        default:
+            alert("Near fatal error. Value set to 1");
+            document.getElementById("import").value = "080100007000070960026900130000290304960000082502047000013009840097020000600003070";
+            break;
+            
+    }
+}
 function getBoard(){
     Board(); //Creates a new board
     counter = 0;

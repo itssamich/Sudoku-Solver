@@ -7,6 +7,30 @@
         <title>Sudoku Thing</title>
     </head>
     <body>
+        <h1>Sudoku Solver</h1>
+
+        <aside id="testStringAside">
+            <h2>Test String</h2>
+            <button onclick="testString()">Click to try a test string</button>
+            <p>More available on my GitHub</p>
+            
+        </aside>
+        <aside id="stringAside">
+            <h2>To make your own board:</h2>
+            <dl>
+                <dt>Importing String</dt>
+                <dd>Make sure you are importing only one(1) string at a time,<br/>
+                the string must contain at least seventeen(17) <br/>
+                non-zero or non-empty values between [1-9]</dd> <br/>
+                <dt>Assigning on board values</dt>
+                <dd>To manually add values to the board, <br/>
+                click on the cell tthat you would like to interact with <br/>
+                then type the value between [1-9]. <br/>
+                For the board to attempt a solve, you must add <br/>
+                at least 17 valid values</dd>
+            </dl>
+
+        </aside>
     <table class="sudoku">
         <tbody="">
             <tr>
@@ -118,14 +142,22 @@
             </tr>
         </tbody>
     </table>
-
-        <input type="text" id="import">
-        <button onclick="importPuzzle()">Import</button>
-        <button onclick="solve()">Solve</button>
-        <button onclick="resetBoard()">Reset</button>
+        <div class="input">
+            <label for="importArea">Import a board</label>
+            <input type="text" id="import" name="importArea" pattern="[0-9]{81}">
+        </div>
         
         <div id="timer">
-            <p>Time:</p>
+            <p>Time taken to solve with Backtracking: </p>
         </div>
+        <div class="buttons">
+        <button onclick="importPuzzle()" id="importbtn">Import</button>
+        <button onclick="solve()" id="solvebtn">Solve</button>
+        <button onclick="resetBoard()" id="resetbtn">Reset</button>
+
+        </div>
+
+        <a class="githubLink" href="https://github.com/itssamich/Sudoku-Solver" target="_blank">View on GitHub</a>
+        
     </body>
 </html>
