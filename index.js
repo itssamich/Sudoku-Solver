@@ -138,13 +138,18 @@ function sudokuSolver(board){
 
 function importPuzzle(){
     var importedValue = document.getElementById("import").value //saves the imported value in a variable
-    if(importedValue.length != 81){ //checks that the imported string is 81 characters long to fit perfectly in board
+    for(let i = 0; i < importedValue.length; i++){
+        if(importedValue[i] != "0" && importedValue[i] != 0 && importedValue[i] != ''){
+            counter++;
+        }
+    }
+    if(importedValue.length != 81 && counter < 17){ //checks that the imported string is 81 characters long to fit perfectly in board
         alert("Please enter a valid puzzle"); //alerts user
     }
     else{
         counter = 0;
         Board(); //generates a new board;
-        counter = 81; //sets the counter to 81 to allow for solving
+         //sets the counter to 81 to allow for solving
         for(let i = 0; i < 9; i++){ //row
             for(let j = 0; j < 9; j++){ //column
                 board[i][j] = importedValue.charAt(i*9+j); //sets the value at the given position in the board

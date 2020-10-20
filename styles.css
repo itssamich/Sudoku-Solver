@@ -15,40 +15,43 @@ h1{
     background-color: white;
     border-radius: 15px;
     padding: 50px;
-    font-weight: 500;
     width: 407px; /*Lol hardcoded for fun*/
-    position: fixed;
-    left: 1.5%;
-    top: 10%;
     text-align: center;
 }
 #stringAside{
     background-color: white;
     border-radius: 15px;
     padding: 50px;
-    font-weight: 500;
-    position: absolute;
-    left: 1.5%;
-    bottom: 20%;
 
 }
 .buttons{
     display: inline;
     flex-wrap: wrap;
-    width: 40%;
     height: 50px;
     vertical-align: middle;
 }
-#importbtn, #resetbtn, #solvebtn{
-    margin: 0;
-    width: 32.7%;
-    height: 100%;
+
+#githublogo{
+    position: absolute;
+    padding: 0;
+    top: 7px;
+    color: white;
+    right: 55px;
+    font-size: 1.3em;
 }
 .githubLink{
     position: absolute;
     top: 0px;
     right: 50px;
+    background-color: rgb(0, 65, 185);
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    padding-right: 30px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
+
 #timer p{
     margin: 0;
 }
@@ -68,7 +71,6 @@ h1{
 #import:invalid{
     background-color: rgba(255, 0, 0, 0.5);
 }
-
 /*Sudoku Board*/
 input::-webkit-inner-spin-button, input::-webkit-outer-spin-button{
     -webkit-appearance: none;
@@ -104,7 +106,13 @@ input {
     text-align:center;
     font-size: 5em;
 }
+.cell:invalid{
+    color: rgba(255, 0, 0, 1);
+}
 
+.cell:focus{
+    background-color: rgb(189, 189, 189)
+}
 /*Import Input*/
 #import{
     text-align: left;
@@ -117,3 +125,50 @@ input {
     background-color: white;
 }
 
+@media only screen and (min-width: 1920px){
+    html{
+        overflow: hidden;
+    }
+    #testStringAside{
+        background-color: white;
+        border-radius: 15px;
+        padding: 50px;
+        font-weight: 500;
+        width: 407px; /*Lol hardcoded for fun*/
+        position: fixed;
+        left: 1.5%;
+        top: 10%;
+        text-align: center;
+    }
+    #stringAside{
+        background-color: white;
+        border-radius: 15px;
+        padding: 50px;
+        font-weight: 500;
+        position: absolute;
+        left: 1.5%;
+        bottom: 20%;
+    
+    }
+    .buttons{
+        width: 40%;
+    }
+    #importbtn, #resetbtn, #solvebtn{
+        margin: 0;
+        width: 32.7%;
+        height: 100%;
+    }
+}
+@media only screen and (max-width: 1919){
+    html{
+        font-size: .6em;
+    }
+    .buttons{
+        width: 100%;
+    }
+    #importbtn, #resetbtn, #solvebtn{
+        margin: 0;
+        font-size: 2em;
+        height: 100%;
+    }
+}
